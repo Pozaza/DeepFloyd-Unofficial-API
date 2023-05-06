@@ -66,11 +66,15 @@ module.exports = class DeepFloyd {
 											ws.send(JSON.stringify({ fn_index: 34, data: [temp, index, Math.floor(Math.random() * 100000000), 4, "smart50", 50, prompt, negative, Math.floor(Math.random() * 100000000), 9, 40], event_data: null, session_hash: hash }));
 											break;
 										case 'process_completed':
-											let imageBuffer = Buffer.from(json.output.data[index].replace(/^data:image\/png;base64,/, ""), "base64");
+											try {
+												let imageBuffer = Buffer.from(json.output.data[index].replace(/^data:image\/png;base64,/, ""), "base64");
 											
-											imageBuffer.download = async (name = `upscale-${image.name.slice(5)}`) => await fs.writeFileSync(name + '.png', imageBuffer); // Скачать апскейл
+												imageBuffer.download = async (name = `upscale-${image.name.slice(5)}`) => await fs.writeFileSync(name + '.png', imageBuffer); // Скачать апскейл
 											
-											resolve(imageBuffer);
+												resolve(imageBuffer);
+											} catch (e) {
+												reject({ message: 'bad space index' });
+											}
 											break;
 									}
 								});
