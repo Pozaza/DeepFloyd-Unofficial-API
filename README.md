@@ -1,7 +1,8 @@
-# About
-This is an unofficial DeepFloyd IF API, so it may be UNSTABLE
+# About 📝
+⚠️ This is an unofficial DeepFloyd IF API, so it **may be UNSTABLE**!<br />
+📎 It uses **Node.js >= 18**
 
-# Example of use
+# Example of use ⌨️
 index.js:
 ```js
 const DeepFloyd = require('./deepfloyd');
@@ -16,7 +17,8 @@ let upscaled = await images[0].upscale(); // буффер увеличенной
 await upscaled.download(`upscaled`); // скачать увеличенную картинку
 ```
 Raw image (`image-0.png`): ![image](https://github.com/Pozaza/DeepFloyd-Unofficial-API/blob/main/image-0.png)
-
+<br />
 Upscaled image (`upscaled.png`): ![image](https://github.com/Pozaza/DeepFloyd-Unofficial-API/blob/main/upscaled.png?raw=true)
-# Credits
-Made with me - Pozaza, made with love
+
+# Credits 🤗
+Made by me - Pozaza, made with love
