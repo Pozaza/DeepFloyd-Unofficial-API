@@ -1,9 +1,10 @@
 # About 📝
 ⚠️ This is an unofficial DeepFloyd IF API, so it **may be UNSTABLE**!
 <br />
-📎 It uses **Node.js >= 18.2.0**
-<br />
 ✌️ Open issues if you found a bug or want to improve this API!
+
+# Requirements 📎
+**Node.js >= 18.2.0**
 
 # Example of use ⌨️
 index.js:
