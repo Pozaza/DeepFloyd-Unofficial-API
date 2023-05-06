@@ -24,4 +24,4 @@ Raw image (`image-0.png`): ![image](https://github.com/Pozaza/DeepFloyd-Unoffici
 Upscaled image (`upscaled.png`): ![image](https://github.com/Pozaza/DeepFloyd-Unofficial-API/blob/main/upscaled.png?raw=true)
 
 # Credits 🤗
-Made by me - Pozaza, made with love
+Made by me - [Pozaza](https://github.com/Pozaza), made with love
