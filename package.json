@@ -1,0 +1,15 @@
+{
+  "name": "deepfloyd-unofficial-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "ws": "^8.13.0"
+  },
+  "author": "Pozaza",
+  "license": "ISC"
+}
