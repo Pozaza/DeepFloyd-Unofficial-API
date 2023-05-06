@@ -67,7 +67,7 @@ module.exports = class DeepFloyd {
 											break;
 										case 'process_completed':
 											try {
-												let imageBuffer = Buffer.from(json.output.data[index].replace(/^data:image\/png;base64,/, ""), "base64");
+												let imageBuffer = Buffer.from(json.output.data[0].replace(/^data:image\/png;base64,/, ""), "base64");
 											
 												imageBuffer.download = async (name = `upscale-${image.name.slice(5)}`) => await fs.writeFileSync(name + '.png', imageBuffer); // Скачать апскейл
 											
