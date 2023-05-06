@@ -16,6 +16,7 @@ let upscaled = await images[0].upscale(); // буффер увеличенной
 await upscaled.download(`upscaled`); // скачать увеличенную картинку
 ```
 Raw image (`image-0.png`): ![image](https://github.com/Pozaza/DeepFloyd-Unofficial-API/blob/main/image-0.png)
+
 Upscaled image (`upscaled.png`): ![image](https://github.com/Pozaza/DeepFloyd-Unofficial-API/blob/main/upscaled.png?raw=true)
 # Credits
 Made with me - Pozaza, made with love
