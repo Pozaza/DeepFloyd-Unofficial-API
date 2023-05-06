@@ -2,7 +2,7 @@
 This is an unofficial DeepFloyd IF API, so it may be UNSTABLE
 
 # Example of use
-General example:
+index.js:
 ```js
 const DeepFloyd = require('./deepfloyd');
 const df = new DeepFloyd('sst5l'); // это индекс пространства приложения в hugging face, его можно найти в ссылке пространства (например: https://deepfloyd-if--sst5l.hf.space/)
