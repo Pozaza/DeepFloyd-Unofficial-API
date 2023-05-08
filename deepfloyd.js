@@ -46,7 +46,7 @@ module.exports = class DeepFloyd {
 								}
 							}
 							image.url = `https://${api}/file=${image.name}`; // URL картинки
-							image.upscale = (scaleGuidanceUpscale) => new Promise(function(resolve, reject) { // Апскейл
+							image.upscale = (scaleGuidanceUpscale = 9) => new Promise(function(resolve, reject) { // Апскейл
 								ws = new WebSocket(`wss://${api}/queue/join`);
 								
 								ws.on('message', async data => {
