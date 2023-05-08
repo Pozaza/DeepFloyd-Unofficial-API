@@ -11,10 +11,7 @@ module.exports = class DeepFloyd {
 		this.sessionHash = crypto.randomBytes(16).toString('hex');
 	}
 
-	createImages(prompt, negative = "") {
-		this.prompt = prompt;
-		this.negative = negative;
-		
+	createImages(prompt, negative = "", scaleGuidance = 7) {
 		let api = this.api;
 		let hash = this.sessionHash;
 		
@@ -33,7 +30,7 @@ module.exports = class DeepFloyd {
 						reject({ message: 'queue_full' });
 						break;
 					case 'send_data':
-						ws.send(JSON.stringify({ fn_index: 20, data: [prompt, negative, Math.floor(Math.random() * 100000000), 4, 7, "smart50", 100], event_data: null, session_hash: hash }));
+						ws.send(JSON.stringify({ fn_index: 20, data: [prompt, negative, Math.floor(Math.random() * 100000000), 4, scaleGuidance, "smart50", 100], event_data: null, session_hash: hash }));
 						break;
 					case 'process_completed':
 						resolve(json.output.data[0].map((image, index) => {
@@ -49,7 +46,7 @@ module.exports = class DeepFloyd {
 								}
 							}
 							image.url = `https://${api}/file=${image.name}`; // URL картинки
-							image.upscale = () => new Promise(function(resolve, reject) { // Апскейл
+							image.upscale = (scaleGuidanceUpscale) => new Promise(function(resolve, reject) { // Апскейл
 								ws = new WebSocket(`wss://${api}/queue/join`);
 								
 								ws.on('message', async data => {
@@ -63,7 +60,7 @@ module.exports = class DeepFloyd {
 											reject({ message: 'queue_full' });
 											break;
 										case 'send_data':
-											ws.send(JSON.stringify({ fn_index: 34, data: [temp, index, Math.floor(Math.random() * 100000000), 4, "smart50", 50, prompt, negative, Math.floor(Math.random() * 100000000), 9, 40], event_data: null, session_hash: hash }));
+											ws.send(JSON.stringify({ fn_index: 34, data: [temp, index, Math.floor(Math.random() * 100000000), 4, "smart50", 50, prompt, negative, Math.floor(Math.random() * 100000000), scaleGuidanceUpscale, 40], event_data: null, session_hash: hash }));
 											break;
 										case 'process_completed':
 											try {
