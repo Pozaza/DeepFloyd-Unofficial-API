@@ -12,12 +12,16 @@ index.js:
 const DeepFloyd = require('./deepfloyd');
 const df = new DeepFloyd('sst5l'); // это индекс пространства приложения в hugging face, его можно найти в ссылке пространства (например: https://deepfloyd-if--sst5l.hf.space/)
 
-let images = await df.createImages('rabbit with black sunglasses', 'ugly, glitchy'); // массив из картинок с их функциями
+let images = await df.createImages('rabbit with black sunglasses', 'ugly, glitchy', 10); // массив из картинок с их функциями
+// 1 - prompt
+// 2 - negative prompt
+// 3 - scale guidance
 
 console.log(images.map(image => image.url)); // вывод ссылок на картинки
 images.map(async (image, index) => await image.download(`image-${index}`)); // скачать все картинки
 
-let upscaled = await images[0].upscale(); // буффер увеличенной картинки
+let upscaled = await images[0].upscale(8); // буффер увеличенной картинки
+// 1 - scale guidance
 await upscaled.download(`upscaled`); // скачать увеличенную картинку
 ```
 Raw image (`image-0.png`): ![image](https://github.com/Pozaza/DeepFloyd-Unofficial-API/blob/main/image-0.png)
