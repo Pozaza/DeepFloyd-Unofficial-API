@@ -13,7 +13,7 @@ console.log(images.map(image => image.url)); // вывод ссылок на к�
 images.map(async (image, index) => await image.download(`image-${index}`)); // скачать все картинки
 
 let upscaled1 = await images[0].upscale(scaleGuidance, seed); // буффер увеличенной картинки
-let upscaled2 = await images[1].upscale(scaleGuidance, seed);
+let upscaled2 = await images[1].upscale();
 
 await upscaled1.download(`upscaled1`); // скачать увеличенную картинку
 await upscaled2.download(`upscaled2`);
