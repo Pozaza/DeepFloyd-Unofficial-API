@@ -1,3 +1,6 @@
+# OBSOLETE
+
+
 # About 📝
 ⚠️ This is an unofficial DeepFloyd IF API, so it **may be UNSTABLE**!
 <br />
